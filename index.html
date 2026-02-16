@@ -121,16 +121,40 @@
           <li><a href="#process" class="nav__link">Så går det till</a></li>
           <li><a href="#kontakt" class="nav__link">Kontakt</a></li>
         </ul>
+        <div class="nav__mobile-footer">
+          <a href="tel:+46424958200" class="nav__mobile-link">+46 42 495 82 00</a>
+          <a href="mailto:kontakt@fonstergiganten.se" class="nav__mobile-link">kontakt@fonstergiganten.se</a>
+          <a href="https://fonstergiganten.se/integritetsploicy/" class="nav__mobile-link">Integritetspolicy</a>
+        </div>
       </nav>
       <div class="header__actions">
         <button class="header__phone-btn" id="phone-btn" aria-label="Visa telefonnummer">Frågor? Ring oss</button>
         <a href="#kontakt" class="header__cta-btn">Begär offert</a>
       </div>
-      <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
-        <span></span><span></span><span></span>
+      <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
   </header>
+
+  <!-- Mobilmeny full-page overlay (öppnas vid hamburger-klick) -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+    <nav class="nav-overlay__inner" aria-label="Mobilnavigering">
+      <ul class="nav-overlay__list">
+        <li><a href="#tjanster" class="nav-overlay__link">Tjänster</a></li>
+        <li><a href="#varfor" class="nav-overlay__link">Varför oss</a></li>
+        <li><a href="#process" class="nav-overlay__link">Så går det till</a></li>
+        <li><a href="#kontakt" class="nav-overlay__link">Kontakt</a></li>
+      </ul>
+      <div class="nav-overlay__footer">
+        <a href="tel:+46424958200" class="nav-overlay__footer-link">+46 42 495 82 00</a>
+        <a href="mailto:kontakt@fonstergiganten.se" class="nav-overlay__footer-link">kontakt@fonstergiganten.se</a>
+        <a href="https://fonstergiganten.se/integritetsploicy/" class="nav-overlay__footer-link">Integritetspolicy</a>
+      </div>
+    </nav>
+  </div>
 
   <main id="main">
     <!-- 1. Hero -->

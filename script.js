@@ -28,24 +28,49 @@
   // Mobilmeny
   // -------------------------------------------------------------------------
   const navToggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav');
-  const navLinks = document.querySelectorAll('.nav__link');
+  const navOverlay = document.getElementById('nav-overlay');
 
-  if (navToggle && nav) {
+  if (navToggle && navOverlay) {
+    let scrollY = 0;
+
+    const setScrollLock = (locked) => {
+      if (locked) {
+        scrollY = window.scrollY || window.pageYOffset;
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+      } else {
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        window.scrollTo(0, scrollY);
+      }
+    };
+
     navToggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
+      const isOpen = navOverlay.classList.toggle('open');
+      navOverlay.setAttribute('aria-hidden', !isOpen);
       navToggle.setAttribute('aria-expanded', isOpen);
       navToggle.setAttribute('aria-label', isOpen ? 'Stäng meny' : 'Öppna meny');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      setScrollLock(isOpen);
     });
 
-    navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.setAttribute('aria-label', 'Öppna meny');
-        document.body.style.overflow = '';
-      });
+    const closeNav = () => {
+      navOverlay.classList.remove('open');
+      navOverlay.setAttribute('aria-hidden', 'true');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Öppna meny');
+      setScrollLock(false);
+    };
+
+    navOverlay.querySelectorAll('.nav-overlay__link, .nav-overlay__footer-link').forEach((link) => {
+      link.addEventListener('click', closeNav);
     });
   }
 
