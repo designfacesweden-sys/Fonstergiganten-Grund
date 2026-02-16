@@ -132,6 +132,52 @@
   });
 
   // -------------------------------------------------------------------------
+  // Phone Widget Modal
+  // -------------------------------------------------------------------------
+  const phoneBtn = document.getElementById('phone-btn');
+  const phoneWidget = document.getElementById('phone-widget');
+  const phoneWidgetClose = document.getElementById('phone-widget-close');
+  const phoneWidgetOverlay = document.getElementById('phone-widget-overlay');
+
+  function openPhoneWidget() {
+    if (phoneWidget) {
+      phoneWidget.classList.add('active');
+      phoneWidget.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closePhoneWidget() {
+    if (phoneWidget) {
+      phoneWidget.classList.remove('active');
+      phoneWidget.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (phoneBtn) {
+    phoneBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPhoneWidget();
+    });
+  }
+
+  if (phoneWidgetClose) {
+    phoneWidgetClose.addEventListener('click', closePhoneWidget);
+  }
+
+  if (phoneWidgetOverlay) {
+    phoneWidgetOverlay.addEventListener('click', closePhoneWidget);
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && phoneWidget && phoneWidget.classList.contains('active')) {
+      closePhoneWidget();
+    }
+  });
+
+  // -------------------------------------------------------------------------
   // Formulär – enkel hantering (placeholder för backend)
   // -------------------------------------------------------------------------
   const form = document.querySelector('.cta__form');

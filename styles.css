@@ -338,6 +338,7 @@ ul {
   transition: all var(--duration-fast);
   white-space: nowrap;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  cursor: pointer;
 }
 
 .header__phone-btn:hover {
@@ -984,20 +985,23 @@ ul {
   font-size: 1rem;
   font-weight: 600;
   color: white;
-  background: #1a3d2a;
-  border: 2px solid #1a3d2a;
+  background: rgba(20, 25, 22, 0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all var(--duration-normal);
   font-family: var(--font-sans);
   margin-bottom: var(--space-sm);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
 }
 
 .cta__send-btn:hover {
-  background: #153025;
-  border-color: #153025;
+  background: rgba(20, 25, 22, 0.78);
+  border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(26, 61, 42, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
 }
 
 .cta__form .cta__badges {
@@ -1436,6 +1440,150 @@ ul {
   .footer__bottom-inner {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Phone Widget
+   -------------------------------------------------------------------------- */
+.phone-widget {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-normal), visibility var(--duration-normal);
+  pointer-events: none;
+}
+
+.phone-widget.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.phone-widget__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.phone-widget__content {
+  position: relative;
+  z-index: 1;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-2xl);
+  max-width: 320px;
+  width: calc(100% - var(--space-2xl));
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  transform: scale(0.9) translateY(-10px);
+  transition: transform var(--duration-normal);
+  text-align: center;
+  border: 1px solid rgba(20, 25, 22, 0.1);
+}
+
+.phone-widget.active .phone-widget__content {
+  transform: scale(1) translateY(0);
+}
+
+.phone-widget__close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  transition: background var(--duration-fast);
+}
+
+.phone-widget__close:hover {
+  background: var(--color-bg-alt);
+}
+
+.phone-widget__close span {
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background: var(--color-text-light);
+  border-radius: 2px;
+  transition: transform var(--duration-fast);
+}
+
+.phone-widget__close span:first-child {
+  transform: rotate(45deg);
+}
+
+.phone-widget__close span:last-child {
+  transform: rotate(-45deg);
+}
+
+.phone-widget__header {
+  margin-bottom: var(--space-md);
+}
+
+.phone-widget__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 var(--space-xs) 0;
+  letter-spacing: -0.01em;
+}
+
+.phone-widget__subtitle {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.phone-widget__number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a3d2a;
+  text-decoration: none;
+  margin: 0 0 var(--space-sm) 0;
+  transition: color var(--duration-fast);
+  font-family: var(--font-sans);
+  padding: var(--space-sm) 0;
+}
+
+.phone-widget__number:hover {
+  color: #153025;
+  text-decoration: underline;
+}
+
+.phone-widget__hours {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .phone-widget__content {
+    padding: var(--space-lg) var(--space-xl);
+    max-width: 280px;
+  }
+
+  .phone-widget__title {
+    font-size: 1.125rem;
+  }
+
+  .phone-widget__number {
+    font-size: 1.375rem;
   }
 }
 

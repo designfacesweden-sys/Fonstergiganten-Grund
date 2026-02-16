@@ -123,7 +123,7 @@
         </ul>
       </nav>
       <div class="header__actions">
-        <a href="tel:+46424958200" class="header__phone-btn">Frågor? Ring oss</a>
+        <button class="header__phone-btn" id="phone-btn" aria-label="Visa telefonnummer">Frågor? Ring oss</button>
         <a href="#kontakt" class="header__cta-btn">Begär offert</a>
       </div>
       <button class="nav-toggle" aria-label="Öppna meny" aria-expanded="false">
@@ -452,6 +452,23 @@
       </div>
     </footer>
   </main>
+
+  <!-- Phone Widget -->
+  <div class="phone-widget" id="phone-widget" aria-hidden="true" role="dialog" aria-labelledby="phone-widget-title">
+    <div class="phone-widget__overlay" id="phone-widget-overlay"></div>
+    <div class="phone-widget__content">
+      <button class="phone-widget__close" id="phone-widget-close" aria-label="Stäng">
+        <span></span>
+        <span></span>
+      </button>
+      <div class="phone-widget__header">
+        <h3 id="phone-widget-title" class="phone-widget__title">Ring oss</h3>
+        <p class="phone-widget__subtitle">Vi svarar inom ett dygn</p>
+      </div>
+      <a href="tel:+46424958200" class="phone-widget__number">+46 42 495 82 00</a>
+      <p class="phone-widget__hours">Mån–Fre 08:00–17:00</p>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
