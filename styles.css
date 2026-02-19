@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Fönstergiganten – One-page Landing
+   Bygggiganten – One-page Landing
    Modern 2026 design | Clean | Light | Editorial
    ========================================================================== */
 
@@ -347,6 +347,8 @@ ul {
   white-space: nowrap;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
   cursor: pointer;
+  min-height: 2.75rem;
+  height: 2.75rem;
 }
 
 .header__phone-btn:hover {
@@ -371,6 +373,9 @@ ul {
   text-decoration: none;
   transition: all var(--duration-fast);
   white-space: nowrap;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06) inset;
+  min-height: 2.75rem;
+  height: 2.75rem;
 }
 
 .header__cta-btn:hover {
@@ -439,7 +444,7 @@ ul {
   line-height: 1.1;
   color: white;
   margin-bottom: var(--space-lg);
-  max-width: 14ch;
+  max-width: 20ch;
 }
 
 .hero__title em {
@@ -450,7 +455,7 @@ ul {
   font-size: 1.125rem;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.92);
-  max-width: 42ch;
+  max-width: 65ch;
   margin-bottom: var(--space-xl);
 }
 
@@ -676,7 +681,7 @@ ul {
 }
 
 /* --------------------------------------------------------------------------
-   Varför Fönstergiganten – Editorial list layout
+   Varför Bygggiganten – Editorial list layout
    -------------------------------------------------------------------------- */
 .varfor {
   position: relative;
@@ -714,7 +719,7 @@ ul {
 }
 
 .varfor__header {
-  max-width: 520px;
+  max-width: 100%;
   margin-bottom: var(--space-3xl);
 }
 
@@ -738,6 +743,9 @@ ul {
   line-height: 1.2;
   color: white;
   margin-bottom: var(--space-sm);
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
 .varfor__intro {
@@ -805,6 +813,11 @@ ul {
 
   .varfor__num {
     font-size: 1.25rem;
+  }
+  
+  .varfor__title {
+    white-space: normal;
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
   }
 }
 
@@ -1203,7 +1216,7 @@ ul {
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.6;
   margin-top: var(--space-md);
-  max-width: 320px;
+  max-width: 420px;
 }
 
 .footer__heading {
@@ -1533,6 +1546,7 @@ ul {
     padding: var(--space-2xl) var(--container-padding);
     margin-left: var(--container-padding);
     margin-right: var(--container-padding);
+    max-width: none;
   }
 
   .footer__container {
@@ -1657,7 +1671,7 @@ ul {
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   padding: var(--space-xl) var(--space-2xl);
-  max-width: 320px;
+  max-width: 420px;
   width: calc(100% - var(--space-2xl));
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
   transform: scale(0.9) translateY(-10px);
@@ -1737,6 +1751,8 @@ ul {
   transition: color var(--duration-fast);
   font-family: var(--font-sans);
   padding: var(--space-sm) 0;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .phone-widget__number:hover {
@@ -1753,7 +1769,7 @@ ul {
 @media (max-width: 520px) {
   .phone-widget__content {
     padding: var(--space-lg) var(--space-xl);
-    max-width: 280px;
+    max-width: 340px;
   }
 
   .phone-widget__title {
@@ -1762,6 +1778,7 @@ ul {
 
   .phone-widget__number {
     font-size: 1.375rem;
+    white-space: nowrap;
   }
 }
 
